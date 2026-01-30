@@ -1,4 +1,4 @@
-# FGJ Game Project (Finnish Game Jam)
+# FGJ Game Project (Finnish Game Jam) 30.1.-01.2.
 
 ## 1. Idea
 2D puzzle/platformer. Kerää maskeja edetäksesi pelissä. 
