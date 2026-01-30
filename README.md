@@ -2,6 +2,7 @@
 
 ## 1. Idea
 2D puzzle/platformer. Kerää maskeja edetäksesi pelissä. 
+Voi käyttää yhtä maskia kerralla. Voi vaihtaa inventorysta
 
 ---
 
@@ -72,12 +73,12 @@ Scripts:
 - [x] Player controller
 - [x] Kamera
 - [x] Enemy AI
-- [ ] UI
+- [x] UI
 
 ---
 
 ## 8. Ideat myöhemmin
-- Inventory
-- Abilityt
-- Boss
+- Inventory ON
+- Abilityt ON
+- Boss ON
 
