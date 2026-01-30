@@ -1,2 +1,0 @@
-# FGJ
-Finnish Game Jam 
