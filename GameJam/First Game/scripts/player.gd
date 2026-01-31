@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+
+
 const SPEED = 130.0
 var base_jump_velocity = 300.0
 var jump_velocity = base_jump_velocity
@@ -58,6 +60,7 @@ func _physics_process(delta):
 	velocity.x = direction * SPEED if direction != 0 else move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
 
+@onready var attack_hitbox = $AttackHitbox
 # --- Item select/deselect ---
 func select_item(item: Item):
 	if active_item != null:
@@ -66,18 +69,12 @@ func select_item(item: Item):
 	active_item = item
 
 	match item.type:
+		"attack_mask":
+			attack_hitbox.monitoring = true
+			attack_hitbox.visible = true
 		"mask":
 			jump_multiplier = item.jump
 			jump_velocity = base_jump_velocity * jump_multiplier
-			print("Jump mask selected:", item.name)
-
-		"attack_mask":
-			print("Attack mask selected:", item.name, "hit:", item.hit)
-			# Ei muuteta hyppyjä
-
-		"key":
-			print("Key selected:", item.name)
-
 
 func deselect_item():
 	if active_item != null:
@@ -87,8 +84,8 @@ func deselect_item():
 				jump_velocity = base_jump_velocity
 
 			"attack_mask":
-				# Ei tarvitse palauttaa mitään
-				pass
+				attack_hitbox.monitoring = false
+				attack_hitbox.visible = false
 
 			"key":
 				pass
@@ -97,6 +94,10 @@ func deselect_item():
 		active_item = null
 		
 func die():
+	# Pelaaja on kuolematon attack_maskin aikana
+	if active_item != null and active_item.type == "attack_mask":
+		return  # älä tee mitään
+
+	# normaali kuoleminen
 	print("Player died")
-	Engine.time_scale = 1.0
 	get_tree().reload_current_scene()
