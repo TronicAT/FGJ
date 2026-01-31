@@ -1,20 +1,15 @@
 extends CharacterBody2D
 
-# === INVENTORY ===
-var passive_inventory: Item           # esim. avain
-var active_inventory: ActiveInventory # max 3 maskia
 
-# === STATS ===
-var jump_multiplier := 1.0
-var speed_multiplier := 1.0
-
-# === MOVEMENT CONSTANTS ===
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
 
+<<<<<<< HEAD
 # === READY ===
 func _ready():
 	passive_inventory = null
@@ -52,31 +47,27 @@ func collect_item(item: Item):
 		print("Key collected!")
 
 # === PHYSICS PROCESS ===
+=======
+>>>>>>> 448c70db85872ca46f8646a695138812071f62ee
 func _physics_process(delta):
-	# Vaihda maskia inputilla
-	if Input.is_action_just_pressed("mask_next"):
-		active_inventory.switch_item(1)
-	if Input.is_action_just_pressed("mask_prev"):
-		active_inventory.switch_item(-1)
-
-	# Gravity
+	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Jump
+	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY * jump_multiplier
+		velocity.y = JUMP_VELOCITY
 
-	# Vaakasuuntainen liike
+	# Get the input direction: -1, 0, 1
 	var direction = Input.get_axis("move_left", "move_right")
-
-	# Flip sprite
+	
+	# Flip the Sprite
 	if direction > 0:
 		animated_sprite.flip_h = false
 	elif direction < 0:
 		animated_sprite.flip_h = true
-
-	# Animoinnit
+	
+	# Play animations
 	if is_on_floor():
 		if direction == 0:
 			animated_sprite.play("idle")
@@ -84,16 +75,11 @@ func _physics_process(delta):
 			animated_sprite.play("run")
 	else:
 		animated_sprite.play("jump")
-
-	# Liike
-	if direction != 0:
-		velocity.x = direction * SPEED * speed_multiplier
+	
+	# Apply movement
+	if direction:
+		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED * speed_multiplier)
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-
-# === DIE / RESPAWN ===
-func die():
-	print("Player died! Respawning...")
-	velocity = Vector2.ZERO               # Nollaa nopeus

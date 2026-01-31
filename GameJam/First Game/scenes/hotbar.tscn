@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://tyymmry31ntu"]
+
+[ext_resource type="Texture2D" uid="uid://bs7eetlphjli" path="res://assets/sprites/InventoryUi.png" id="1_yj1xu"]
+
+[node name="slot_gui" type="Button" unique_id=1089052055]
+offset_right = 14.0
+offset_bottom = 14.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2097133185]
+position = Vector2(7, 7)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_yj1xu")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2126599783]
+layout_mode = 0
+offset_right = 14.0
+offset_bottom = 14.0

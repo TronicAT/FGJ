@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://enwike2q3h7q"]
+
+[ext_resource type="PackedScene" uid="uid://c2dmgryxgm5o5" path="res://scenes/Gui/hotbar_slot.tscn" id="1_aiy2w"]
+
+[node name="Hotbar" type="HBoxContainer" unique_id=762887400]
+offset_right = 62.0
+offset_bottom = 18.0
+scale = Vector2(5, 5)
+alignment = 1
+
+[node name="Slot1" parent="." unique_id=1596212299 instance=ExtResource("1_aiy2w")]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+
+[node name="Slot2" parent="." unique_id=1891148693 instance=ExtResource("1_aiy2w")]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+
+[node name="Slot3" parent="." unique_id=1611187186 instance=ExtResource("1_aiy2w")]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
