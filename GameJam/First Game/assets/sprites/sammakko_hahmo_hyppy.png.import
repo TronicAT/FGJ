@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8cmjj8vq3r8d"
-path="res://.godot/imported/knight.png-7c67c83d34932624952797d9e971a644.ctex"
+uid="uid://dtx14ss1rrp7i"
+path="res://.godot/imported/sammakko_hahmo_hyppy.png-4b3cd1de4460ee5d6c238d51504b0df9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/knight.png"
-dest_files=["res://.godot/imported/knight.png-7c67c83d34932624952797d9e971a644.ctex"]
+source_file="res://assets/sprites/sammakko_hahmo_hyppy.png"
+dest_files=["res://.godot/imported/sammakko_hahmo_hyppy.png-4b3cd1de4460ee5d6c238d51504b0df9.ctex"]
 
 [params]
 

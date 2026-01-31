@@ -1,14 +1,12 @@
-class_name Item
 extends Resource
+class_name Item
 
 enum ItemType { PASSIVE, ACTIVE }
 
-var name: String
-var type: ItemType
-var sprite: Texture2D
-var attributes: Dictionary = {}
+@export var name: String = ""
+@export var type: ItemType = ItemType.PASSIVE
+@export var sprite: Texture2D
 
-var jump_mask = Item.new()
-jump_mask.name = "Jump Mask"
-jump_mask.type = Item.ItemType.ACTIVE
-jump_mask.attributes = {"jump_multiplier:" 2.0}
+
+#JumpMP
+@export var jump_multiplier: float = 1.0
