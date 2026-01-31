@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c2dmgryxgm5o5"]
+
+[ext_resource type="Texture2D" uid="uid://bs7eetlphjli" path="res://assets/sprites/InventoryUi.png" id="1_crbfx"]
+[ext_resource type="Script" uid="uid://bpteb5jth5mvk" path="res://scenes/Gui/hotbar_slot.gd" id="1_vbelh"]
+
+[node name="Button" type="Button" unique_id=1596212299]
+offset_right = 18.0
+offset_bottom = 18.0
+script = ExtResource("1_vbelh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=670030428]
+position = Vector2(9, 9)
+texture = ExtResource("1_crbfx")
