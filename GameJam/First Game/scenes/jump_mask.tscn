@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c7tg6ineb5ts7"]
+
+[ext_resource type="Script" uid="uid://dolr4d4rh7rw5" path="res://scripts/Inventory/jump_mask.gd" id="1_pfopm"]
+[ext_resource type="Resource" uid="uid://b0jvvadu3r1oi" path="res://scripts/Inventory/jump_mask.tres" id="2_fyqkm"]
+[ext_resource type="Texture2D" uid="uid://ef00fuvkuhua" path="res://assets/sprites/sammakko_maski.png" id="2_j3liq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fyqkm"]
+radius = 9.0
+
+[node name="Jump_Mask" type="Area2D" unique_id=567837018]
+script = ExtResource("1_pfopm")
+item_resource = ExtResource("2_fyqkm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=58104851]
+texture = ExtResource("2_j3liq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=566569899]
+shape = SubResource("CircleShape2D_fyqkm")

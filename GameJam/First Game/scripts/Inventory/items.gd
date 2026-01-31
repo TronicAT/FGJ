@@ -4,7 +4,7 @@ class_name Item
 enum ItemType { PASSIVE, ACTIVE }
 
 @export var name: String = ""
-@export var type: ItemType = ItemType.PASSIVE
+@export var type: ItemType = Item.ItemType.ACTIVE
 @export var sprite: Texture2D
 
 
