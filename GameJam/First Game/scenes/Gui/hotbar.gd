@@ -11,6 +11,8 @@ func _ready():
 
 # Lisää item HotBariin
 func add_item(item: Item):
+	if item.type == "key":
+		return  # ÄLÄ lisää avainta hotbariin
 	items.append(item)
 	update_hotbar()
 

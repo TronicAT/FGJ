@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kxmk4qhhhp8a"
+path="res://.godot/imported/Maskien Labyrintti.mp3-cf35047906dd6d04c51441422272a13e.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Maskien Labyrintti.mp3"
+dest_files=["res://.godot/imported/Maskien Labyrintti.mp3-cf35047906dd6d04c51441422272a13e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

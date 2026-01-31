@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://x61llwpl5q7n"]
+
+[ext_resource type="Texture2D" uid="uid://ceg0lrnfocgjb" path="res://assets/sprites/lukittu_ovi.png" id="1_v221q"]
+[ext_resource type="Script" uid="uid://cveyfxtopvxcj" path="res://inventory/door.gd" id="1_x4l5m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4l5m"]
+size = Vector2(40, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eu2hn"]
+size = Vector2(32, 48)
+
+[node name="door" type="StaticBody2D" unique_id=1514839918]
+script = ExtResource("1_x4l5m")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=789942977]
+position = Vector2(-4, 1.4305115e-06)
+scale = Vector2(1.25, 1.4999999)
+texture = ExtResource("1_v221q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1628644245]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_x4l5m")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=716163403]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=553332898]
+position = Vector2(-16, 0)
+shape = SubResource("RectangleShape2D_eu2hn")

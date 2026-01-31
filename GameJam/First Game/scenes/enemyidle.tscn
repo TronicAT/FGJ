@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://brux2k2vq3tb6"]
+
+[ext_resource type="Script" uid="uid://vosioc46krq8" path="res://scenes/enemyidle.gd" id="1_1olng"]
+[ext_resource type="Texture2D" uid="uid://bnltv143vwn4e" path="res://assets/sprites/vihu_animaatio-Sheet.png" id="1_kjn41"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1olng"]
+atlas = ExtResource("1_kjn41")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xonqa"]
+atlas = ExtResource("1_kjn41")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_825ew"]
+atlas = ExtResource("1_kjn41")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdm3l"]
+atlas = ExtResource("1_kjn41")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2nv8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1olng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xonqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_825ew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdm3l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gshos"]
+radius = 5.0
+height = 20.0
+
+[node name="enemyidle" type="Node2D" unique_id=773483463]
+script = ExtResource("1_1olng")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2054618688]
+sprite_frames = SubResource("SpriteFrames_g2nv8")
+autoplay = "default"
+frame_progress = 0.24260192
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=122577722]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=738117794]
+shape = SubResource("CapsuleShape2D_gshos")

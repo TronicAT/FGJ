@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bntatli5p863g"]
+
+[ext_resource type="Script" uid="uid://vroum6e5o8el" path="res://inventory/item.gd" id="1_equkq"]
+[ext_resource type="Texture2D" uid="uid://cwtb7iuayktjg" path="res://assets/sprites/avain.png" id="1_x0q7n"]
+
+[resource]
+script = ExtResource("1_equkq")
+name = "Key"
+icon = ExtResource("1_x0q7n")
+type = "key"
+jump = 0.0
+hit = 0.0
+target_object = NodePath("Items/door")
+metadata/_custom_type_script = "uid://vroum6e5o8el"

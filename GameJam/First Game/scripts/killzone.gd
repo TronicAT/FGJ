@@ -14,7 +14,6 @@ func _on_body_entered(body):
 
 	# Muuten pelaaja kuolee
 	print("You died!")
-	Engine.time_scale = 0.5
 
 	# Poista pelaajan collision shape (valinnainen)
 	var col = body.get_node_or_null("CollisionShape2D")
