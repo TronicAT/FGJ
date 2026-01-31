@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://covuobnhp2smm"]
+
+[ext_resource type="Texture2D" uid="uid://ef00fuvkuhua" path="res://assets/sprites/sammakko_maski.png" id="1_stfxm"]
+[ext_resource type="Script" uid="uid://vroum6e5o8el" path="res://inventory/item.gd" id="2_d8jqa"]
+
+[resource]
+script = ExtResource("2_d8jqa")
+name = "Jump Mask"
+icon = ExtResource("1_stfxm")
+metadata/_custom_type_script = "uid://vroum6e5o8el"

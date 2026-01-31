@@ -5,13 +5,11 @@
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_nlliu"]
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://assets/sprites/world_tileset.png" id="2_r1crl"]
 [ext_resource type="PackedScene" uid="uid://bgv5v2fxqlswe" path="res://scenes/platform.tscn" id="3_cmfc3"]
+[ext_resource type="PackedScene" uid="uid://pqp5qaw561fr" path="res://scenes/coin.tscn" id="4_28cek"]
 [ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://scenes/killzone.tscn" id="5_x8euu"]
-[ext_resource type="PackedScene" uid="uid://bwcy5on77qwh8" path="res://inventory/attack_mask.tscn" id="6_dinhu"]
 [ext_resource type="PackedScene" uid="uid://c34bvbockvi05" path="res://inventory/jump_mask.tscn" id="6_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://d2w2i5h0lhc6l" path="res://scenes/slime.tscn" id="6_l0s6b"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="7_8cblx"]
-[ext_resource type="Resource" uid="uid://covuobnhp2smm" path="res://inventory/jump_mask.tres" id="7_dinhu"]
-[ext_resource type="Resource" uid="uid://cesddgos6l3ll" path="res://inventory/attack_mask.tres" id="7_kvuet"]
 [ext_resource type="PackedScene" uid="uid://enwike2q3h7q" path="res://scenes/Gui/hotbar.tscn" id="10_vtaks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ashvg"]
@@ -258,23 +256,41 @@ position_smoothing_enabled = true
 
 [node name="Killzone" parent="." unique_id=1741829455 instance=ExtResource("5_x8euu")]
 position = Vector2(74, 141)
-collision_mask = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1946438015]
 shape = SubResource("WorldBoundaryShape2D_cn5tm")
 
 [node name="Coins" type="Node" parent="." unique_id=593200249]
 
-[node name="attack_mask" parent="Coins" unique_id=1342946621 node_paths=PackedStringArray("hotbar") instance=ExtResource("6_dinhu")]
-collision_mask = 2
-hotbar = NodePath("../../CanvasLayer/Hotbar")
-item_resource = ExtResource("7_kvuet")
-
-[node name="Jump_mask" parent="Coins" unique_id=81833181 node_paths=PackedStringArray("hotbar") instance=ExtResource("6_kvpfn")]
+[node name="Jump_mask" parent="Coins" unique_id=81833181 instance=ExtResource("6_kvpfn")]
 position = Vector2(102, 62)
-collision_mask = 2
-hotbar = NodePath("../../CanvasLayer/Hotbar")
-item_resource = ExtResource("7_dinhu")
+
+[node name="Coin" parent="Coins" unique_id=1697953641 instance=ExtResource("4_28cek")]
+position = Vector2(73, 68)
+
+[node name="Coin2" parent="Coins" unique_id=571953305 instance=ExtResource("4_28cek")]
+position = Vector2(217, 69)
+
+[node name="Coin3" parent="Coins" unique_id=617379183 instance=ExtResource("4_28cek")]
+position = Vector2(232, 69)
+
+[node name="Coin4" parent="Coins" unique_id=1795028962 instance=ExtResource("4_28cek")]
+position = Vector2(104, -44)
+
+[node name="Coin5" parent="Coins" unique_id=890129097 instance=ExtResource("4_28cek")]
+position = Vector2(503, 37)
+
+[node name="Coin6" parent="Coins" unique_id=1776242140 instance=ExtResource("4_28cek")]
+position = Vector2(757, -25)
+
+[node name="Coin7" parent="Coins" unique_id=1254977515 instance=ExtResource("4_28cek")]
+position = Vector2(776, -25)
+
+[node name="Coin8" parent="Coins" unique_id=869160682 instance=ExtResource("4_28cek")]
+position = Vector2(795, -25)
+
+[node name="Coin9" parent="Coins" unique_id=559035769 instance=ExtResource("4_28cek")]
+position = Vector2(584, -108)
 
 [node name="Platforms" type="Node" parent="." unique_id=401400156]
 

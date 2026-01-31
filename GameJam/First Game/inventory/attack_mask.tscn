@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bwcy5on77qwh8"]
+
+[ext_resource type="Texture2D" uid="uid://drcpmcgkkx8g5" path="res://assets/sprites/tappaja_maski.png" id="1_07vuv"]
+[ext_resource type="Script" uid="uid://bxd3tr4k5e5la" path="res://inventory/attack_mask.gd" id="1_ihxpt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ihxpt"]
+radius = 9.055386
+
+[node name="attack_mask" type="Area2D" unique_id=1342946621]
+script = ExtResource("1_ihxpt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1091130032]
+texture = ExtResource("1_07vuv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1583846509]
+shape = SubResource("CircleShape2D_ihxpt")

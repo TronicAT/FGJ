@@ -1,85 +1,92 @@
 extends CharacterBody2D
 
-
 const SPEED = 130.0
-const JUMP_VELOCITY = -300.0
+var base_jump_velocity = 300.0
+var jump_velocity = base_jump_velocity
+var jump_multiplier = 1.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+var active_item: Item = null
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
 @onready var animated_sprite = $AnimatedSprite2D
 
-<<<<<<< HEAD
-# === READY ===
-func _ready():
-	passive_inventory = null
-	
-	active_inventory = ActiveInventory.new()
-	add_child(active_inventory)
-	active_inventory.connect("item_changed", Callable(self, "_on_item_changed"))
+# Base animaatiot (normaali asu)
+var idle_anim = "idle"
+var run_anim = "run"
+var jump_anim = "jump"
 
-# === ITEM SIGNAL HANDLER ===
-func _on_item_changed(item: Item) -> void:
-	jump_multiplier = 1
-
-	if item == null:
-		return
-	if item.type != Item.ItemType.ACTIVE:
-		return
-
-	jump_multiplier = item.jump_multiplier
-
-# === ITEM COLLECTION ===
-func collect_item(item: Item):
-	if item == null:
-		print("No item!")
-		return
-
-	print("Collected item:", item.name, "type:", item.type)
-
-	if item.type == Item.ItemType.ACTIVE:
-		if active_inventory.add_item(item):
-			print("Mask added:", item.name)
-		else:
-			print("Mask inventory full!")
-	elif item.type == Item.ItemType.PASSIVE:
-		passive_inventory = item
-		print("Key collected!")
-
-# === PHYSICS PROCESS ===
-=======
->>>>>>> 448c70db85872ca46f8646a695138812071f62ee
 func _physics_process(delta):
-	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Handle jump.
+	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = -jump_velocity
 
-	# Get the input direction: -1, 0, 1
+	# Liike
 	var direction = Input.get_axis("move_left", "move_right")
-	
-	# Flip the Sprite
-	if direction > 0:
-		animated_sprite.flip_h = false
-	elif direction < 0:
-		animated_sprite.flip_h = true
-	
-	# Play animations
-	if is_on_floor():
-		if direction == 0:
-			animated_sprite.play("idle")
-		else:
-			animated_sprite.play("run")
-	else:
-		animated_sprite.play("jump")
-	
-	# Apply movement
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	animated_sprite.flip_h = direction < 0
 
+	# Päivitä animaatio
+	var anim_name = ""
+	if is_on_floor():
+		anim_name = idle_anim if direction == 0 else run_anim
+	else:
+		anim_name = jump_anim
+
+	# Jos maski käytössä → käytä maskin animaatioita
+	if active_item != null and active_item.type == "mask":
+		match anim_name:
+			"idle":
+				anim_name = "JumpMaskIdle"
+			"run":
+				anim_name = "JumpMaskRun"
+			"jump":
+				anim_name = "JumpMaskJump"
+
+	animated_sprite.play(anim_name)
+
+	# Liike x
+	velocity.x = direction * SPEED if direction != 0 else move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
+
+# --- Item select/deselect ---
+func select_item(item: Item):
+	if active_item != null:
+		deselect_item()
+
+	active_item = item
+
+	match item.type:
+		"mask":
+			jump_multiplier = item.jump
+			jump_velocity = base_jump_velocity * jump_multiplier
+			print("Jump mask selected:", item.name)
+
+		"attack_mask":
+			print("Attack mask selected:", item.name, "hit:", item.hit)
+			# Ei muuteta hyppyjä
+
+		"key":
+			print("Key selected:", item.name)
+
+
+func deselect_item():
+	if active_item != null:
+		match active_item.type:
+			"mask":
+				jump_multiplier = 1.0
+				jump_velocity = base_jump_velocity
+
+			"attack_mask":
+				# Ei tarvitse palauttaa mitään
+				pass
+
+			"key":
+				pass
+
+		print("Item deselected:", active_item.name)
+		active_item = null
+		
+func die():
+	print("Player died")
+	get_tree().reload_current_scene()

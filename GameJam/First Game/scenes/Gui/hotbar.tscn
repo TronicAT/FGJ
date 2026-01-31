@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://enwike2q3h7q"]
 
 [ext_resource type="PackedScene" uid="uid://c2dmgryxgm5o5" path="res://scenes/Gui/hotbar_slot.tscn" id="1_aiy2w"]
+[ext_resource type="Script" uid="uid://btbgfykpye1an" path="res://scenes/Gui/hotbar.gd" id="1_i12vs"]
 
 [node name="Hotbar" type="HBoxContainer" unique_id=762887400]
 offset_right = 62.0
 offset_bottom = 18.0
 scale = Vector2(5, 5)
 alignment = 1
+script = ExtResource("1_i12vs")
 
 [node name="Slot1" parent="." unique_id=1596212299 instance=ExtResource("1_aiy2w")]
 custom_minimum_size = Vector2(18, 18)

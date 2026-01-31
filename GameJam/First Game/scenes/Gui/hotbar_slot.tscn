@@ -8,6 +8,11 @@ offset_right = 18.0
 offset_bottom = 18.0
 script = ExtResource("1_vbelh")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=670030428]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=557951196]
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 18.0
+
+[node name="background" type="Sprite2D" parent="TextureRect" unique_id=670030428]
 position = Vector2(9, 9)
 texture = ExtResource("1_crbfx")

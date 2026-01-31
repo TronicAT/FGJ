@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cesddgos6l3ll"]
+
+[ext_resource type="Texture2D" uid="uid://drcpmcgkkx8g5" path="res://assets/sprites/tappaja_maski.png" id="1_e28ap"]
+[ext_resource type="Script" uid="uid://vroum6e5o8el" path="res://inventory/item.gd" id="1_ow8nq"]
+
+[resource]
+script = ExtResource("1_ow8nq")
+name = "Attack mask"
+icon = ExtResource("1_e28ap")
+type = "attack_mask"
+jump = 1.0
+cooldown = 0.0
+metadata/_custom_type_script = "uid://vroum6e5o8el"
