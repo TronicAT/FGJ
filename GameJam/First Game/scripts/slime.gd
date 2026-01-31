@@ -25,7 +25,7 @@ func _process(delta):
 func _on_body_entered(body):
 	# Pelaajan hyökkäyshitti osuu → vihollinen kuolee
 	if body.name == "AttackHitbox":
-		die()
+		body.get_node_or_null("CollisionShape2D")
 		return
 
 	# Pelaajan keho osuu
@@ -35,12 +35,8 @@ func _on_body_entered(body):
 		# Pelaajalla on attack_mask → vihollinen kuolee, pelaaja EI kuole
 		if item != null and item.type == "attack_mask":
 			die()
-			return
-
-		# Pelaajalla ei ole attack_maskia → pelaaja kuolee
-		body.die()
-
-
+		else:
+			body.die()
 
 func die():
 	queue_free()
