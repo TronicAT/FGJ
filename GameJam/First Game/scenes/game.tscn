@@ -248,6 +248,7 @@ layer_1/tile_data = PackedInt32Array(196609, 0, 0, 196610, 0, 0, 393215, 0, 0, 3
 
 [node name="Player" parent="." unique_id=1597365151 instance=ExtResource("1_rbmkf")]
 position = Vector2(34, 37)
+collision_mask = 13
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1380497910]
 position = Vector2(0, -7)
@@ -258,7 +259,8 @@ position_smoothing_enabled = true
 
 [node name="Killzone" parent="." unique_id=1741829455 instance=ExtResource("5_x8euu")]
 position = Vector2(74, 141)
-collision_mask = 1
+collision_layer = 9
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1946438015]
 shape = SubResource("WorldBoundaryShape2D_cn5tm")
@@ -266,13 +268,11 @@ shape = SubResource("WorldBoundaryShape2D_cn5tm")
 [node name="Coins" type="Node" parent="." unique_id=593200249]
 
 [node name="attack_mask" parent="Coins" unique_id=1342946621 node_paths=PackedStringArray("hotbar") instance=ExtResource("6_dinhu")]
-collision_mask = 2
 hotbar = NodePath("../../CanvasLayer/Hotbar")
 item_resource = ExtResource("7_kvuet")
 
 [node name="Jump_mask" parent="Coins" unique_id=81833181 node_paths=PackedStringArray("hotbar") instance=ExtResource("6_kvpfn")]
 position = Vector2(102, 62)
-collision_mask = 2
 hotbar = NodePath("../../CanvasLayer/Hotbar")
 item_resource = ExtResource("7_dinhu")
 

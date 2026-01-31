@@ -3,9 +3,18 @@ extends Area2D
 @onready var timer = $Timer
 
 func _on_body_entered(body):
+	# Killzone reagoi vain Playeriin
+	if body.name != "Player":
+		return
+
 	print("You died!")
 	Engine.time_scale = 0.5
-	body.get_node("CollisionShape2D").queue_free()
+
+	# Poista pelaajan collision shape turvallisesti
+	var col = body.get_node_or_null("CollisionShape2D")
+	if col:
+		col.queue_free()
+
 	timer.start()
 
 

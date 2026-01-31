@@ -23,16 +23,23 @@ func _process(delta):
 	position.x += direction * SPEED * delta
 
 func _on_body_entered(body):
-	if body.name != "Player":
-		return
-
-	var item = body.active_item
-
-	if item != null and item.type == "attack_mask":
+	# Pelaajan hyökkäyshitti osuu → vihollinen kuolee
+	if body.name == "AttackHitbox":
 		die()
 		return
 
-	body.die()
+	# Pelaajan keho osuu
+	if body.name == "Player":
+		var item = body.active_item
+
+		# Pelaajalla on attack_mask → vihollinen kuolee, pelaaja EI kuole
+		if item != null and item.type == "attack_mask":
+			die()
+			return
+
+		# Pelaajalla ei ole attack_maskia → pelaaja kuolee
+		body.die()
+
 
 
 func die():

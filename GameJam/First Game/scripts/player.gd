@@ -42,6 +42,15 @@ func _physics_process(delta):
 				anim_name = "JumpMaskRun"
 			"jump":
 				anim_name = "JumpMaskJump"
+				
+	if active_item != null and active_item.type == "attack_mask":
+		match anim_name:
+			"idle":
+				anim_name = "AttackMaskIdle"
+			"run":
+				anim_name = "AttackMaskRun"
+			"jump":
+				anim_name = "AttackMaskJump"
 
 	animated_sprite.play(anim_name)
 
@@ -89,4 +98,5 @@ func deselect_item():
 		
 func die():
 	print("Player died")
+	Engine.time_scale = 1.0
 	get_tree().reload_current_scene()
