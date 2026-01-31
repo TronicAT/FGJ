@@ -25,7 +25,7 @@ func _ready():
 
 # === ITEM SIGNAL HANDLER ===
 func _on_item_changed(item: Item) -> void:
-	jump_multiplier = 1.0
+	jump_multiplier = 1
 
 	if item == null:
 		return
