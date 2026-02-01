@@ -2,7 +2,9 @@
 
 ## 1. Idea
 2D puzzle/platformer. Kerää maskeja edetäksesi pelissä. 
-Voi käyttää yhtä maskia kerralla. Voi vaihtaa inventorysta
+Voi käyttää yhtä maskia kerralla. Voi vaihtaa inventorysta. 
+
+Lore coming in version 1.20 
 
 ---
 
