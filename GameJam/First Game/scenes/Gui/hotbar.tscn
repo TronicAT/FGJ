@@ -17,7 +17,3 @@ layout_mode = 2
 [node name="Slot2" parent="." unique_id=1891148693 instance=ExtResource("1_aiy2w")]
 custom_minimum_size = Vector2(18, 18)
 layout_mode = 2
-
-[node name="Slot3" parent="." unique_id=1611187186 instance=ExtResource("1_aiy2w")]
-custom_minimum_size = Vector2(18, 18)
-layout_mode = 2
